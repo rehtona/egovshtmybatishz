@@ -4,8 +4,7 @@ import java.util.List;
 
 import egovframework.let.cop.com.service.BoardUseInf;
 import egovframework.let.cop.com.service.BoardUseInfVO;
-
-import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 
 import org.springframework.stereotype.Repository;
 
@@ -27,7 +26,7 @@ import org.springframework.stereotype.Repository;
  * </pre>
  */
 @Repository("BBSUseInfoManageDAO")
-public class BBSUseInfoManageDAO extends EgovAbstractDAO {
+public class BBSUseInfoManageDAO extends EgovAbstractMapper {
 
     /**
      * 게시판 사용 정보를 삭제한다.
@@ -36,7 +35,7 @@ public class BBSUseInfoManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public void deleteBBSUseInf(BoardUseInf bdUseInf) throws Exception {
-	update("BBSUseInfoManageDAO.deleteBBSUseInf", bdUseInf);
+    	update("deleteBBSUseInf", bdUseInf);
     }
 
     /**
@@ -47,7 +46,7 @@ public class BBSUseInfoManageDAO extends EgovAbstractDAO {
      */
     @SuppressWarnings("unchecked")
     public List<BoardUseInf> selectBBSUseInfByCmmnty(BoardUseInfVO bdUseVO) throws Exception {
-	return (List<BoardUseInf>) list("BBSUseInfoManageDAO.selectBBSUseInfByCmmnty", bdUseVO);
+    	return (List<BoardUseInf>) list("selectBBSUseInfByCmmnty", bdUseVO);
     }
 
     /**
@@ -58,7 +57,7 @@ public class BBSUseInfoManageDAO extends EgovAbstractDAO {
      */
     @SuppressWarnings("unchecked")
     public List<BoardUseInf> selectBBSUseInfByClub(BoardUseInfVO bdUseVO) throws Exception {
-	return (List<BoardUseInf>) list("BBSUseInfoManageDAO.selectBBSUseInfByClub", bdUseVO);
+    	return (List<BoardUseInf>) list("selectBBSUseInfByClub", bdUseVO);
     }
 
     /**
@@ -68,7 +67,7 @@ public class BBSUseInfoManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public void deleteAllBBSUseInfByCmmnty(BoardUseInfVO bdUseVO) throws Exception {
-	update("BBSUseInfoManageDAO.deleteAllBBSUseInfByCmmnty", bdUseVO);
+    	update("deleteAllBBSUseInfByCmmnty", bdUseVO);
     }
 
     /**
@@ -78,7 +77,7 @@ public class BBSUseInfoManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public void deleteAllBBSUseInfByClub(BoardUseInfVO bdUseVO) throws Exception {
-	update("BBSUseInfoManageDAO.deleteAllBBSUseInfByClub", bdUseVO);
+    	update("BBSUseInfoManageDAO.deleteAllBBSUseInfByClub", bdUseVO);
     }
 
     /**
@@ -88,7 +87,7 @@ public class BBSUseInfoManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public void insertBBSUseInf(BoardUseInf bdUseInf) throws Exception {
-	insert("BBSUseInfoManageDAO.insertBBSUseInf", bdUseInf);
+    	insert("insertBBSUseInf", bdUseInf);
     }
 
     /**
@@ -100,7 +99,7 @@ public class BBSUseInfoManageDAO extends EgovAbstractDAO {
      */
     @SuppressWarnings("unchecked")
     public List<BoardUseInfVO> selectBBSUseInfs(BoardUseInfVO bdUseVO) throws Exception {
-	return (List<BoardUseInfVO>) list("BBSUseInfoManageDAO.selectBBSUseInfs", bdUseVO);
+    	return (List<BoardUseInfVO>) list("selectBBSUseInfs", bdUseVO);
     }
 
     /**
@@ -110,7 +109,7 @@ public class BBSUseInfoManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public int selectBBSUseInfsCnt(BoardUseInfVO bdUseVO) throws Exception {
-	return (Integer)select("BBSUseInfoManageDAO.selectBBSUseInfsCnt", bdUseVO);
+    	return (Integer)selectByPk("selectBBSUseInfsCnt", bdUseVO);
     }
 
     /**
@@ -121,7 +120,7 @@ public class BBSUseInfoManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public BoardUseInfVO selectBBSUseInf(BoardUseInfVO bdUseVO) throws Exception {
-	return (BoardUseInfVO)select("BBSUseInfoManageDAO.selectBBSUseInf", bdUseVO);
+    	return (BoardUseInfVO)selectByPk("selectBBSUseInf", bdUseVO);
     }
 
     /**
@@ -131,7 +130,7 @@ public class BBSUseInfoManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public void updateBBSUseInf(BoardUseInf bdUseInf) throws Exception {
-	update("BBSUseInfoManageDAO.updateBBSUseInf", bdUseInf);
+    	update("updateBBSUseInf", bdUseInf);
     }
 
     /**
@@ -141,7 +140,7 @@ public class BBSUseInfoManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public void deleteBBSUseInfByBoardId(BoardUseInf bdUseInf) throws Exception {
-	update("BBSUseInfoManageDAO.deleteBBSUseInfByBoardId", bdUseInf);
+	update("deleteBBSUseInfByBoardId", bdUseInf);
     }
 
     /**
@@ -153,7 +152,7 @@ public class BBSUseInfoManageDAO extends EgovAbstractDAO {
      */
     @SuppressWarnings("unchecked")
     public List<BoardUseInfVO> selectBBSUseInfsByTrget(BoardUseInfVO bdUseVO) throws Exception {
-	return (List<BoardUseInfVO>) list("BBSUseInfoManageDAO.selectBBSUseInfsByTrget", bdUseVO);
+    	return (List<BoardUseInfVO>) list("selectBBSUseInfsByTrget", bdUseVO);
     }
 
     /**
@@ -164,7 +163,7 @@ public class BBSUseInfoManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public int selectBBSUseInfsCntByTrget(BoardUseInfVO bdUseVO) throws Exception {
-	return (Integer)select("BBSUseInfoManageDAO.selectBBSUseInfsCntByTrget", bdUseVO);
+    	return (Integer)selectByPk("selectBBSUseInfsCntByTrget", bdUseVO);
     }
 
     /**
@@ -174,6 +173,7 @@ public class BBSUseInfoManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public void updateBBSUseInfByTrget(BoardUseInf bdUseInf) throws Exception {
-	update("BBSUseInfoManageDAO.updateBBSUseInfByTrget", bdUseInf);
+    	update("updateBBSUseInfByTrget", bdUseInf);
     }
+
 }

@@ -40,9 +40,10 @@ import org.springframework.stereotype.Service;
 @Service("EgovBBSManageService")
 public class EgovBBSManageServiceImpl extends EgovAbstractServiceImpl implements EgovBBSManageService {
 
+	
     @Resource(name = "BBSManageDAO")
     private BBSManageDAO bbsMngDAO;
-
+    
     @Resource(name = "EgovFileMngService")
     private EgovFileMngService fileService;
 

@@ -1,5 +1,6 @@
 package egovframework.let.cop.smt.sim.service.impl;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -57,6 +58,11 @@ public class EgovIndvdlSchdulManageServiceImpl extends EgovAbstractServiceImpl i
 	 */
 	@Override
 	public List<?> selectIndvdlSchdulManageRetrieve(Map<?, ?> map) throws Exception{
+		Iterator<String> keys = (Iterator<String>) map.keySet().iterator();
+		while( keys.hasNext() ){
+			String key = keys.next();
+			System.out.println( String.format("키 : %s, 값 : %s", key, map.get(key)) );
+		}
 		return dao.selectIndvdlSchdulManageRetrieve(map);
 	}
 
@@ -113,7 +119,7 @@ public class EgovIndvdlSchdulManageServiceImpl extends EgovAbstractServiceImpl i
 	public void insertIndvdlSchdulManage(IndvdlSchdulManageVO indvdlSchdulManageVO) throws Exception {
 		String sMakeId = idgenService.getNextStringId();
 		indvdlSchdulManageVO.setSchdulId(sMakeId);
-
+//        System.out.println(indvdlSchdulManageVO.getSchdulId());
 		dao.insertIndvdlSchdulManage(indvdlSchdulManageVO);
 	}
 

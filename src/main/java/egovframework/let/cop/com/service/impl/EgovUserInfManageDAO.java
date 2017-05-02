@@ -3,8 +3,8 @@ package egovframework.let.cop.com.service.impl;
 import java.util.List;
 
 import egovframework.let.cop.com.service.UserInfVO;
-
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 
 import org.springframework.stereotype.Repository;
 
@@ -26,7 +26,7 @@ import org.springframework.stereotype.Repository;
  * </pre>
  */
 @Repository("EgovUserInfManageDAO")
-public class EgovUserInfManageDAO extends EgovAbstractDAO {
+public class EgovUserInfManageDAO extends EgovAbstractMapper {
 
     /**
      * 사용자 정보에 대한 목록을 조회한다.
@@ -48,7 +48,7 @@ public class EgovUserInfManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public int selectUserListCnt(UserInfVO userVO) throws Exception {
-	return (Integer)select("EgovUserInfManageDAO.selectUserListCnt", userVO);
+	return (Integer)selectByPk("EgovUserInfManageDAO.selectUserListCnt", userVO);
     }
 
     /**
@@ -71,7 +71,7 @@ public class EgovUserInfManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public int selectCmmntyUserListCnt(UserInfVO userVO) throws Exception {
-	return (Integer)select("EgovUserInfManageDAO.selectCmmntyUserListCnt", userVO);
+	return (Integer)selectByPk("EgovUserInfManageDAO.selectCmmntyUserListCnt", userVO);
     }
 
     /**
@@ -94,7 +94,7 @@ public class EgovUserInfManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public int selectCmmntyMngrListCnt(UserInfVO userVO) throws Exception {
-	return (Integer)select("EgovUserInfManageDAO.selectCmmntyMngrListCnt", userVO);
+	return (Integer)selectByPk("EgovUserInfManageDAO.selectCmmntyMngrListCnt", userVO);
     }
 
     /**
@@ -117,7 +117,7 @@ public class EgovUserInfManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public int selectClubUserListCnt(UserInfVO userVO) throws Exception {
-	return (Integer)select("EgovUserInfManageDAO.selectClubUserListCnt", userVO);
+	return (Integer)selectByPk("EgovUserInfManageDAO.selectClubUserListCnt", userVO);
     }
 
     /**
@@ -140,7 +140,7 @@ public class EgovUserInfManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public int selectClubOprtrListCnt(UserInfVO userVO) throws Exception {
-	return (Integer)select("EgovUserInfManageDAO.selectClubOprtrListCnt", userVO);
+	return (Integer)selectByPk("EgovUserInfManageDAO.selectClubOprtrListCnt", userVO);
     }
 
     /**

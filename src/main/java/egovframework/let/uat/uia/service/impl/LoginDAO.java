@@ -1,8 +1,8 @@
 package egovframework.let.uat.uia.service.impl;
 
 import egovframework.com.cmm.LoginVO;
-
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 
 import org.springframework.stereotype.Repository;
 
@@ -24,7 +24,7 @@ import org.springframework.stereotype.Repository;
  *  </pre>
  */
 @Repository("loginDAO")
-public class LoginDAO extends EgovAbstractDAO {
+public class LoginDAO extends EgovAbstractMapper {
 
 	/**
 	 * 일반 로그인을 처리한다
@@ -33,7 +33,7 @@ public class LoginDAO extends EgovAbstractDAO {
 	 * @exception Exception
 	 */
 	public LoginVO actionLogin(LoginVO vo) throws Exception {
-		return (LoginVO) select("loginDAO.actionLogin", vo);
+		return (LoginVO) selectByPk("actionLogin", vo);
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class LoginDAO extends EgovAbstractDAO {
 	 * @exception Exception
 	 */
 	public LoginVO searchId(LoginVO vo) throws Exception {
-		return (LoginVO) select("loginDAO.searchId", vo);
+		return (LoginVO) selectByPk("searchId", vo);
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class LoginDAO extends EgovAbstractDAO {
 	 * @exception Exception
 	 */
 	public LoginVO searchPassword(LoginVO vo) throws Exception {
-		return (LoginVO) select("loginDAO.searchPassword", vo);
+		return (LoginVO) selectByPk("searchPassword", vo);
 	}
 
 	/**
@@ -62,6 +62,6 @@ public class LoginDAO extends EgovAbstractDAO {
 	 * @exception Exception
 	 */
 	public void updatePassword(LoginVO vo) throws Exception {
-		update("loginDAO.updatePassword", vo);
+		update("updatePassword", vo);
 	}
 }

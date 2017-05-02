@@ -50,11 +50,17 @@
 			<artifactId>egovframework.rte.ptl.mvc</artifactId>
 			<version>${egovframework.rte.version}</version>
 		</dependency>
-		<dependency>
+		
+		<!-- dependency>
 			<groupId>egovframework.rte</groupId>
 			<artifactId>egovframework.rte.psl.dataaccess</artifactId>
 			<version>${egovframework.rte.version}</version>
-		</dependency>
+		</dependency-->
+<dependency>
+	<groupId>egovframework.rte</groupId>
+	<artifactId>egovframework.rte.psl.dataaccess</artifactId>
+	<version>2.7.0</version>
+</dependency>		
 		<dependency>
 			<groupId>egovframework.rte</groupId>
 			<artifactId>egovframework.rte.fdl.idgnr</artifactId>
@@ -201,7 +207,18 @@
 			<artifactId>icu4j</artifactId>
 			<version>53.1</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.mybatis.caches</groupId>
+            <artifactId>mybatis-hazelcast</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast</artifactId>
+            <version>3.7</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <defaultGoal>install</defaultGoal>

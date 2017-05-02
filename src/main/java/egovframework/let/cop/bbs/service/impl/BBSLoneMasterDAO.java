@@ -3,8 +3,8 @@ import java.util.List;
 
 import egovframework.let.cop.bbs.service.BoardMaster;
 import egovframework.let.cop.bbs.service.BoardMasterVO;
-
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 
 import org.springframework.stereotype.Repository;
 
@@ -26,7 +26,7 @@ import org.springframework.stereotype.Repository;
  *  </pre>
  */
 @Repository("BBSLoneMasterDAO")
-public class BBSLoneMasterDAO extends EgovAbstractDAO {
+public class BBSLoneMasterDAO extends EgovAbstractMapper {
 
     /**
      * 등록된 게시판 속성정보를 삭제한다.
@@ -43,7 +43,10 @@ public class BBSLoneMasterDAO extends EgovAbstractDAO {
      * @param BoardMaster
      */
     public String insertMaster(BoardMaster boardMaster) throws Exception {
-	return (String)insert("BBSLoneMasterDAO.insertMaster", boardMaster);
+    	
+	    int chkVal = 	insert("insertMaster", boardMaster);
+	    	
+		return chkVal+"";
     }
 
     /**
@@ -52,7 +55,8 @@ public class BBSLoneMasterDAO extends EgovAbstractDAO {
      * @param BoardMasterVO
      */
     public BoardMasterVO selectMaster(BoardMaster vo) throws Exception {
-	return (BoardMasterVO)select("BBSLoneMasterDAO.selectMaster", vo);
+    	
+    	return (BoardMasterVO)selectByPk("selectMaster", vo);
     }
 
     /**
@@ -62,7 +66,7 @@ public class BBSLoneMasterDAO extends EgovAbstractDAO {
      */
     @SuppressWarnings("unchecked")
     public List<BoardMasterVO> selectMasterList(BoardMasterVO vo) throws Exception {
-	return (List<BoardMasterVO>) list("BBSLoneMasterDAO.selectMasterList", vo);
+    	return (List<BoardMasterVO>) list("selectMasterList", vo);
     }
 
     /**
@@ -73,7 +77,7 @@ public class BBSLoneMasterDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public int selectMasterListCnt(BoardMasterVO vo) throws Exception {
-	return (Integer)select("BBSLoneMasterDAO.selectMasterListCnt", vo);
+	return (Integer)selectByPk("selectMasterListCnt", vo);
     }
 
     /**
@@ -82,6 +86,6 @@ public class BBSLoneMasterDAO extends EgovAbstractDAO {
      * @param BoardMaster
      */
     public void updateMaster(BoardMaster boardMaster) throws Exception {
-	update("BBSLoneMasterDAO.updateMaster", boardMaster);
+    	update("updateMaster", boardMaster);
     }
 }

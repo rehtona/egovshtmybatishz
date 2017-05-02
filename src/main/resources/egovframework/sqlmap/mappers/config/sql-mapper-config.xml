@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <typeAliases>
+		<typeAlias alias="egovMap" 					type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+		
+		<typeAlias alias="ComDefaultCodeVO" 		type="egovframework.com.cmm.ComDefaultCodeVO"/>
+		
+		<typeAlias alias="ComDefaultVO" 			type="egovframework.com.cmm.ComDefaultVO"/>
+		
+		<typeAlias alias="IncludedCompInfoVO" 	type="egovframework.com.cmm.IncludedCompInfoVO"/>
+		<typeAlias alias="LoginVO" 					type="egovframework.com.cmm.LoginVO"/>
+		<typeAlias alias="SessionVO" 				type="egovframework.com.cmm.SessionVO"/>
+		
+		<typeAlias alias="FileVO" 						type="egovframework.com.cmm.service.FileVO"/>
+		
+		<typeAlias alias="Board" 						type="egovframework.let.cop.bbs.service.Board"/>
+		<typeAlias alias="BoardMaster" 				type="egovframework.let.cop.bbs.service.BoardMaster"/>		
+		<typeAlias alias="BoardMasterVO" 			type="egovframework.let.cop.bbs.service.BoardMasterVO"/>
+		
+		<typeAlias alias="BoardVO" 					type="egovframework.let.cop.bbs.service.BoardVO"/>
+		
+		<typeAlias  alias="BoardUseInf" 				type="egovframework.let.cop.com.service.BoardUseInf"/>
+		<typeAlias  alias="BoardUseInfVO" 			type="egovframework.let.cop.com.service.BoardUseInfVO"/>
+	
+		<typeAlias alias="TemplateInf"			        type="egovframework.let.cop.com.service.TemplateInf"/>		
+		<typeAlias alias="TemplateInfVO" 			type="egovframework.let.cop.com.service.TemplateInfVO"/>
+		
+		<typeAlias alias="UserInfVO" 					type="egovframework.let.cop.com.service.UserInfVO"/>
+		
+	    <typeAlias  alias="userVO"      				type = "egovframework.let.uss.umt.service.UserManageVO"/>
+    	<typeAlias  alias="userSearchVO" 			type = "egovframework.let.uss.umt.service.UserDefaultVO"/>	    
+	    
+    </typeAliases>
+    
+	<mappers>
+		<mapper resource="egovframework/sqlmap/mappers/let/cmm/fms/EgovFile_SQL_Hsql.xml"/>
+		
+		<mapper resource="egovframework/sqlmap/mappers/let/cmm/use/EgovCmmUse_SQL_Hsql.xml"/>		
+		
+		<mapper resource="egovframework/sqlmap/mappers/let/cop/bbs/EgovBBSMaster_SQL_Hsql.xml"/>
+		<mapper resource="egovframework/sqlmap/mappers/let/cop/bbs/EgovBoard_SQL_Hsql.xml"/>	
+
+		<mapper resource="egovframework/sqlmap/mappers/let/cop/com/EgovBBSUse_SQL_Hsql.xml"/>		
+		<mapper resource="egovframework/sqlmap/mappers/let/cop/com/EgovTemplate_SQL_Hsql.xml"/>
+	    <mapper resource="egovframework/sqlmap/mappers/let/cop/com/EgovUserInf_SQL_Hsql.xml"/>
+	    
+		<mapper resource="egovframework/sqlmap/mappers/let/cop/smt/sim/EgovIndvdlSchdulManage_SQL_Hsql.xml"/>
+		
+		<mapper resource="egovframework/sqlmap/mappers/let/uat/uia/EgovLoginUsr_SQL_Hsql.xml"/>					
+	</mappers>
+	    
+</configuration>

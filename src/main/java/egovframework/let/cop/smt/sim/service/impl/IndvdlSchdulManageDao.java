@@ -4,8 +4,8 @@ import java.util.Map;
 
 import egovframework.com.cmm.ComDefaultVO;
 import egovframework.let.cop.smt.sim.service.IndvdlSchdulManageVO;
-
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 
 import org.springframework.stereotype.Repository;
 
@@ -23,7 +23,7 @@ import org.springframework.stereotype.Repository;
  * @created 09-6-2011 오전 10:08:07
  */
 @Repository("indvdlSchdulManageDao")
-public class IndvdlSchdulManageDao extends EgovAbstractDAO {
+public class IndvdlSchdulManageDao extends EgovAbstractMapper{
 
 
     /**
@@ -33,7 +33,7 @@ public class IndvdlSchdulManageDao extends EgovAbstractDAO {
 	 * @throws Exception
 	 */
 	public List<?> selectIndvdlSchdulManageMainList(Map<?, ?> map) throws Exception{
-		 return  list("IndvdlSchdulManage.selectIndvdlSchdulManageMainList", map);
+		 return  list("selectIndvdlSchdulManageMainList", map);
 	}
 
     /**
@@ -43,7 +43,7 @@ public class IndvdlSchdulManageDao extends EgovAbstractDAO {
 	 * @throws Exception
 	 */
 	public List<?> selectIndvdlSchdulManageRetrieve(Map<?, ?> map) throws Exception{
-		 return  list("IndvdlSchdulManage.selectIndvdlSchdulManageRetrieve", map);
+		 return  list("selectIndvdlSchdulManageRetrieve", map);
 	}
 
 
@@ -54,7 +54,7 @@ public class IndvdlSchdulManageDao extends EgovAbstractDAO {
 	 * @throws Exception
 	 */
 	public IndvdlSchdulManageVO selectIndvdlSchdulManageDetailVO(IndvdlSchdulManageVO indvdlSchdulManageVO) throws Exception{
-		return (IndvdlSchdulManageVO)select("IndvdlSchdulManage.selectIndvdlSchdulManageDetailVO", indvdlSchdulManageVO);
+		return (IndvdlSchdulManageVO)selectByPk("selectIndvdlSchdulManageDetailVO", indvdlSchdulManageVO);
 	}
 
     /**
@@ -64,7 +64,7 @@ public class IndvdlSchdulManageDao extends EgovAbstractDAO {
 	 * @throws Exception
 	 */
 	public List<?> selectIndvdlSchdulManageList(ComDefaultVO searchVO) throws Exception{
-		return list("IndvdlSchdulManage.selectIndvdlSchdulManage", searchVO);
+		return list("selectIndvdlSchdulManage", searchVO);
 	}
 
     /**
@@ -74,7 +74,7 @@ public class IndvdlSchdulManageDao extends EgovAbstractDAO {
 	 * @throws Exception
 	 */
 	public List<?> selectIndvdlSchdulManageDetail(IndvdlSchdulManageVO indvdlSchdulManageVO) throws Exception{
-		return list("IndvdlSchdulManage.selectIndvdlSchdulManageDetail", indvdlSchdulManageVO);
+		return list("selectIndvdlSchdulManageDetail", indvdlSchdulManageVO);
 	}
 
     /**
@@ -84,7 +84,7 @@ public class IndvdlSchdulManageDao extends EgovAbstractDAO {
 	 * @throws Exception
 	 */
 	public int selectIndvdlSchdulManageListCnt(ComDefaultVO searchVO) throws Exception{
-		return (Integer)select("IndvdlSchdulManage.selectIndvdlSchdulManageCnt", searchVO);
+		return (Integer)selectByPk("selectIndvdlSchdulManageCnt", searchVO);
 	}
 
     /**
@@ -93,7 +93,7 @@ public class IndvdlSchdulManageDao extends EgovAbstractDAO {
 	 * @throws Exception
 	 */
 	public void insertIndvdlSchdulManage(IndvdlSchdulManageVO indvdlSchdulManageVO) throws Exception{
-		insert("IndvdlSchdulManage.insertIndvdlSchdulManage", indvdlSchdulManageVO);
+		insert("insertIndvdlSchdulManage", indvdlSchdulManageVO);
 	}
 
     /**
@@ -102,7 +102,7 @@ public class IndvdlSchdulManageDao extends EgovAbstractDAO {
 	 * @throws Exception
 	 */
 	public void updateIndvdlSchdulManage(IndvdlSchdulManageVO indvdlSchdulManageVO) throws Exception{
-		insert("IndvdlSchdulManage.updateIndvdlSchdulManage", indvdlSchdulManageVO);
+		insert("updateIndvdlSchdulManage", indvdlSchdulManageVO);
 	}
 
     /**
@@ -114,6 +114,6 @@ public class IndvdlSchdulManageDao extends EgovAbstractDAO {
 		// 일지 삭제
 		//delete("IndvdlSchdulManage.deleteDiaryManage", indvdlSchdulManageVO);
 		// 일정관리 삭제
-		delete("IndvdlSchdulManage.deleteIndvdlSchdulManage", indvdlSchdulManageVO);
+		delete("deleteIndvdlSchdulManage", indvdlSchdulManageVO);
 	}
 }

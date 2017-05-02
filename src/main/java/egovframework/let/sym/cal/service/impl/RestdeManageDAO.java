@@ -4,8 +4,8 @@ import java.util.List;
 
 import egovframework.let.sym.cal.service.Restde;
 import egovframework.let.sym.cal.service.RestdeVO;
-
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 
 import org.springframework.stereotype.Repository;
 
@@ -27,7 +27,7 @@ import org.springframework.stereotype.Repository;
  * </pre>
  */
 @Repository("RestdeManageDAO")
-public class RestdeManageDAO extends EgovAbstractDAO {
+public class RestdeManageDAO extends EgovAbstractMapper {
 
 	/**
 	 * 일반달력 팝업 정보를 조회한다.
@@ -36,7 +36,7 @@ public class RestdeManageDAO extends EgovAbstractDAO {
 	 * @throws Exception
 	 */
 	public List<?> selectNormalRestdePopup(Restde restde) throws Exception {
-        return list("RestdeManageDAO.selectNormalRestdePopup", restde);
+        return list("selectNormalRestdePopup", restde);
 	}
 
 	/**
@@ -46,7 +46,7 @@ public class RestdeManageDAO extends EgovAbstractDAO {
 	 * @throws Exception
 	 */
 	public List<?> selectAdministRestdePopup(Restde restde) throws Exception {
-        return list("RestdeManageDAO.selectAdministRestdePopup", restde);
+        return list("selectAdministRestdePopup", restde);
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class RestdeManageDAO extends EgovAbstractDAO {
 	 * @throws Exception
 	 */
 	public List<?> selectNormalDayCal(Restde restde) throws Exception {
-        return list("RestdeManageDAO.selectNormalDayCal", restde);
+        return list("selectNormalDayCal", restde);
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class RestdeManageDAO extends EgovAbstractDAO {
 	 * @throws Exception
 	 */
 	public List<?> selectNormalDayRestde(Restde restde) throws Exception {
-        return list("RestdeManageDAO.selectNormalDayRestde", restde);
+        return list("selectNormalDayRestde", restde);
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class RestdeManageDAO extends EgovAbstractDAO {
 	 * @throws Exception
 	 */
 	public List<?> selectNormalMonthRestde(Restde restde) throws Exception {
-        return list("RestdeManageDAO.selectNormalMonthRestde", restde);
+        return list("selectNormalMonthRestde", restde);
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class RestdeManageDAO extends EgovAbstractDAO {
 	 * @throws Exception
 	 */
 	public List<?> selectAdministDayCal(Restde restde) throws Exception {
-        return list("RestdeManageDAO.selectAdministDayCal", restde);
+        return list("selectAdministDayCal", restde);
 	}
 
 	/**
@@ -135,7 +135,7 @@ public class RestdeManageDAO extends EgovAbstractDAO {
 	 * @throws Exception
 	 */
 	public Restde selectRestdeDetail(Restde restde) throws Exception {
-		return (Restde) select("RestdeManageDAO.selectRestdeDetail", restde);
+		return (Restde) selectByPk("RestdeManageDAO.selectRestdeDetail", restde);
 	}
 
 
@@ -156,7 +156,7 @@ public class RestdeManageDAO extends EgovAbstractDAO {
      * @throws Exception
      */
     public int selectRestdeListTotCnt(RestdeVO searchVO) throws Exception {
-        return (Integer)select("RestdeManageDAO.selectRestdeListTotCnt", searchVO);
+        return (Integer)selectByPk("RestdeManageDAO.selectRestdeListTotCnt", searchVO);
     }
 
 	/**

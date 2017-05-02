@@ -1,8 +1,8 @@
 package egovframework.let.cop.bbs.service.impl;
 import egovframework.let.cop.bbs.service.BoardMaster;
 import egovframework.let.cop.bbs.service.BoardMasterVO;
-
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 
 import org.springframework.stereotype.Repository;
 
@@ -24,7 +24,7 @@ import org.springframework.stereotype.Repository;
  *  </pre>
  */
 @Repository("BBSAddedOptionsDAO")
-public class BBSAddedOptionsDAO extends EgovAbstractDAO {
+public class BBSAddedOptionsDAO extends EgovAbstractMapper {
 
     /**
      * 신규 게시판 추가기능 정보를 등록한다.
@@ -32,7 +32,12 @@ public class BBSAddedOptionsDAO extends EgovAbstractDAO {
      * @param BoardMaster
      */
     public String insertAddedOptionsInf(BoardMaster boardMaster) throws Exception {
-	return (String)insert("BBSAddedOptionsDAO.insertAddedOptionsInf", boardMaster);
+    	
+    	int rtnVal = insert("insertAddedOptionsInf", boardMaster);
+    	
+    	//return (String)insert("insertAddedOptionsInf", boardMaster);
+    	return rtnVal+"";
+    	
     }
     
     /**
@@ -41,7 +46,9 @@ public class BBSAddedOptionsDAO extends EgovAbstractDAO {
      * @param BoardMasterVO
      */
     public BoardMasterVO selectAddedOptionsInf(BoardMaster vo) throws Exception {
-	return (BoardMasterVO)select("BBSAddedOptionsDAO.selectAddedOptionsInf", vo);
+    	//return (BoardMasterVO)select("BBSAddedOptionsDAO.selectAddedOptionsInf", vo);
+    	
+    	return (BoardMasterVO) selectByPk("selectAddedOptionsInf", vo);
     }
     
     /**
@@ -50,6 +57,6 @@ public class BBSAddedOptionsDAO extends EgovAbstractDAO {
      * @param BoardMaster
      */
     public void updateAddedOptionsInf(BoardMaster boardMaster) throws Exception {
-	update("BBSAddedOptionsDAO.updateAddedOptionsInf", boardMaster);
+    	update("updateAddedOptionsInf", boardMaster);
     }
 }

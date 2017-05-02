@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import egovframework.com.cmm.service.FileVO;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 
 import org.springframework.stereotype.Repository;
 
@@ -23,7 +24,8 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository("FileManageDAO")
-public class FileManageDAO extends EgovComAbstractDAO {
+//public class FileManageDAO extends EgovComAbstractDAO {
+public class FileManageDAO extends EgovAbstractMapper {
 
 	/**
 	 * 여러 개의 파일에 대한 정보(속성 및 상세)를 등록한다.
@@ -36,13 +38,14 @@ public class FileManageDAO extends EgovComAbstractDAO {
 		FileVO vo = (FileVO) fileList.get(0);
 		String atchFileId = vo.getAtchFileId();
 
-		insert("FileManageDAO.insertFileMaster", vo);
+		insert("insertFileMaster", vo);
 
 		Iterator<?> iter = fileList.iterator();
 		while (iter.hasNext()) {
 			vo = (FileVO) iter.next();
 
-			insert("FileManageDAO.insertFileDetail", vo);
+			insert("insertFileDetail", vo);
+				
 		}
 
 		return atchFileId;
@@ -55,8 +58,8 @@ public class FileManageDAO extends EgovComAbstractDAO {
 	 * @throws Exception
 	 */
 	public void insertFileInf(FileVO vo) throws Exception {
-		insert("FileManageDAO.insertFileMaster", vo);
-		insert("FileManageDAO.insertFileDetail", vo);
+		insert("insertFileMaster", vo);
+		insert("insertFileDetail", vo);
 	}
 
 	/**
@@ -71,7 +74,7 @@ public class FileManageDAO extends EgovComAbstractDAO {
 		while (iter.hasNext()) {
 			vo = (FileVO) iter.next();
 
-			insert("FileManageDAO.insertFileDetail", vo);
+			insert("insertFileDetail", vo);
 		}
 	}
 
@@ -87,7 +90,7 @@ public class FileManageDAO extends EgovComAbstractDAO {
 		while (iter.hasNext()) {
 			vo = (FileVO) iter.next();
 
-			delete("FileManageDAO.deleteFileDetail", vo);
+			delete("deleteFileDetail", vo);
 		}
 	}
 
@@ -98,7 +101,7 @@ public class FileManageDAO extends EgovComAbstractDAO {
 	 * @throws Exception
 	 */
 	public void deleteFileInf(FileVO fvo) throws Exception {
-		delete("FileManageDAO.deleteFileDetail", fvo);
+		delete("deleteFileDetail", fvo);
 	}
 
 	/**
@@ -110,7 +113,8 @@ public class FileManageDAO extends EgovComAbstractDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<FileVO> selectFileInfs(FileVO vo) throws Exception {
-		return (List<FileVO>) list("FileManageDAO.selectFileList", vo);
+		
+		return (List<FileVO>) list("selectFileList", vo);
 	}
 
 	/**
@@ -120,8 +124,10 @@ public class FileManageDAO extends EgovComAbstractDAO {
 	 * @return
 	 * @throws Exception
 	 */
+	@SuppressWarnings("deprecation")
 	public int getMaxFileSN(FileVO fvo) throws Exception {
-		return (Integer) select("FileManageDAO.getMaxFileSN", fvo);
+		
+		return (Integer) selectByPk("getMaxFileSN", fvo);
 	}
 
 	/**
@@ -132,7 +138,8 @@ public class FileManageDAO extends EgovComAbstractDAO {
 	 * @throws Exception
 	 */
 	public FileVO selectFileInf(FileVO fvo) throws Exception {
-		return (FileVO) select("FileManageDAO.selectFileInf", fvo);
+		
+		return (FileVO) selectByPk("selectFileInf", fvo);
 	}
 
 	/**
@@ -142,7 +149,7 @@ public class FileManageDAO extends EgovComAbstractDAO {
 	 * @throws Exception
 	 */
 	public void deleteAllFileInf(FileVO fvo) throws Exception {
-		update("FileManageDAO.deleteCOMTNFILE", fvo);
+		update("deleteCOMTNFILE", fvo);
 	}
 
 	/**
@@ -154,7 +161,8 @@ public class FileManageDAO extends EgovComAbstractDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<FileVO> selectFileListByFileNm(FileVO fvo) throws Exception {
-		return (List<FileVO>) list("FileManageDAO.selectFileListByFileNm", fvo);
+		
+		return (List<FileVO>) selectByPk("selectFileListByFileNm", fvo);
 	}
 
 	/**
@@ -165,7 +173,10 @@ public class FileManageDAO extends EgovComAbstractDAO {
 	 * @throws Exception
 	 */
 	public int selectFileListCntByFileNm(FileVO fvo) throws Exception {
-		return (Integer) select("FileManageDAO.selectFileListCntByFileNm", fvo);
+		
+		//("FileManageDAO.selectFileListCntByFileNm", fvo);
+		return (Integer) selectFileListCntByFileNm(fvo);
+
 	}
 
 	/**
@@ -177,6 +188,7 @@ public class FileManageDAO extends EgovComAbstractDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<FileVO> selectImageFileList(FileVO vo) throws Exception {
-		return (List<FileVO>) list("FileManageDAO.selectImageFileList", vo);
+		
+		return (List<FileVO>) list("selectImageFileList", vo);
 	}
 }

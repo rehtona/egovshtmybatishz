@@ -25,7 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.support.lob.LobCreator;
 import org.springframework.jdbc.support.lob.LobHandler;
-import egovframework.rte.psl.orm.ibatis.support.AbstractLobTypeHandler;
+//import egovframework.rte.psl.orm.ibatis.support.AbstractLobTypeHandler;
 
 /**
  * iBATIS TypeHandler implementation for Strings that get mapped to CLOBs.
@@ -44,7 +44,7 @@ import egovframework.rte.psl.orm.ibatis.support.AbstractLobTypeHandler;
  * @see org.springframework.orm.ibatis.SqlMapClientFactoryBean#setLobHandler
  */
 @SuppressWarnings("deprecation")
-public class AltibaseClobStringTypeHandler extends AbstractLobTypeHandler {
+public class AltibaseClobStringTypeHandler extends org.springframework.orm.ibatis.support.AbstractLobTypeHandler {	
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(AltibaseClobStringTypeHandler.class);
 

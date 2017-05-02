@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="LoginUsr">
+	<cache type="org.mybatis.caches.hazelcast.LoggingHazelcastCache"/>
+
+	<!-- 로그인 처리를 위한 resultMap -->
+	<resultMap id="login" type="egovframework.com.cmm.LoginVO">
+		<result property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="ihidNum" column="ihidNum"/>
+		<result property="email" column="email"/>
+		<result property="password" column="password"/>
+		<result property="userSe" column="userSe"/>
+		<result property="orgnztId" column="orgnztId"/>
+		<result property="uniqId" column="uniqId"/>		
+	</resultMap>
+	
+	<!-- 일반 로그인 -->
+	<select id="actionLogin" resultMap="login">
+		<if test="userSe == &quot;USR&quot;">
+			<![CDATA[
+	            SELECT 
+	            		EMPLYR_ID AS id
+	                  , USER_NM AS name
+	                  , PASSWORD AS password
+	                  , IHIDNUM AS ihidNum
+	                  , EMAIL_ADRES AS email
+	                  , 'USR' AS userSe
+	                  , ORGNZT_ID AS orgnztId
+	                 , ESNTL_ID AS uniqId
+	              FROM 
+	              		LETTNEMPLYRINFO
+	              WHERE 
+	                     EMPLYR_ID = #{id}
+	               AND PASSWORD = #{password}
+	               AND EMPLYR_STTUS_CODE = 'P'
+			]]>
+		</if>
+	</select>
+	
+</mapper>
